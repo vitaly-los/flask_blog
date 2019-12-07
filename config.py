@@ -1,0 +1,2 @@
+class Configuraion(object):
+    pass
