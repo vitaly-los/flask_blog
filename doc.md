@@ -6,3 +6,6 @@ python3 -m venv venv         *Create a virtual envoriment*
 
 >>flask run
 
+export FLASK_APP=blog.py
+flask run
+

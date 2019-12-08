@@ -1,2 +1,2 @@
 class Configuraion(object):
-    pass
+    debug = True
