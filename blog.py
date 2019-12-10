@@ -1,9 +1,24 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+posts = [
+    {
+        'author': 'Los vitaly',
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+        'date_posted': 'December 10, 2019'
+    },
+    {
+        'author': 'User',
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+        'date_posted': 'December 10, 2019'
+    }
+]
+
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('home.html', posts=posts)
 
 
 @app.route('/about')
