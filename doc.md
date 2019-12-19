@@ -7,3 +7,5 @@ python3 -m venv venv        *Create a virtual envoriment in python 3*
 
 Install flask-wtf for working with forms.
 Flask-wtf  *Simple integration of Flask and WTForms, including CSRF, file upload, and reCAPTCHA.*
+
+Install flask-sqlalchemy for working with database
