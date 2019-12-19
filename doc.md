@@ -5,6 +5,5 @@ python3 -m venv venv        *Create a virtual envoriment in python 3*
 
 >>python3  index.py           *Run app*
 
-export FLASK_APP=blog.py
-flask run
-
+Install flask-wtf for working with forms.
+Flask-wtf  *Simple integration of Flask and WTForms, including CSRF, file upload, and reCAPTCHA.*
