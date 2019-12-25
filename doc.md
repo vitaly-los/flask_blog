@@ -21,6 +21,14 @@ Step 3) Install pip into your environemnt ...
 >>python3  index.py           *Run app*
 Pylint give error for db.Model. Switch to flake8
 
+**Modules for flask**
+
+pip install flask 
+
+pip install Flask-WTF
+
+pip install -U Flask-SQLAlchemy
+
 Install flask-wtf for working with forms.
 
 Flask-wtf  *Simple integration of Flask and WTForms, including CSRF, file upload, and reCAPTCHA.*

@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, url_for, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
-from forms import RegistrationFrom, LoginFrom
+from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return "User('{}', '{}', '{}')".format(self.username, self.email, self.image_file)
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
 
 class Post(db.Model):
@@ -37,7 +37,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return "Post('{}', '{}')".format(self.title, self.date_posted)
+        return f"Post('{self.title}', '{self.date_posted}')"
 
 
 posts = [
@@ -68,7 +68,7 @@ def about():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationFrom()
+    form = RegistrationForm()
     if form.validate_on_submit():
         flash('Account created for {}!'.format(form.username.data), 'success')
         return redirect(url_for('home'))
@@ -77,7 +77,7 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginFrom()
+    form = LoginForm()
     if form.validate_on_submit():
         if form.email.data == 'admin@blog.com' \
                 and form.password.data == 'pass':
