@@ -1,19 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '435klf44l60sqqer'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-
-# UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead
-# and will be disabled by default in the future
-# Set it to True to suppress this warning.
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-from models import User, Post
+from flask import render_template, url_for, flash, redirect
+from blog import app
+from blog.forms import RegistrationForm, LoginForm
+from blog.models import User, Post
 
 
 posts = [
@@ -62,7 +50,3 @@ def login():
         else:
             flash('login unseccess', 'danger')
     return render_template('login.html', title='Login', form=form)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
