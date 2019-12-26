@@ -1,5 +1,5 @@
 from datetime import datetime
-from blog import db
+from __main__ import db
 
 
 class User(db.Model):
